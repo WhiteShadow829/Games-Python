@@ -1,0 +1,27 @@
+print("                   ######################################")
+print("                   ###         ****************       ###")
+print("                   ###         <BLOOMBERGHOTEL>       ###")
+print("                   ###         ****************       ###")
+print("                   ######################################")
+
+player_name = input("name your character ")
+print("" + player_name + ", you are in a room, empty and there is no light surrounding you, what are you gonna do?")
+answer=input('Open the window or switch on the light? (light/window) :')
+if answer=="light":
+    answer=input("" + player_name + ", you saw a button. Press it? (yes/no)")
+    if answer=="yes":
+        answer=input("Once you pressed the button a door opened somewhere,")
+    elif answer=="no":
+        print("you decide you don't want to run the risk of pressing that big red button and it was probably the safest idea. And you're still wandering around the room")
+    else:
+        print("sorry that was not an option, you lost")
+elif answer == "window":
+    answer=input("You reach for the courtains, yet all you can barely see in the dark is that the window is apparently just bricks. Want to keep looking around the room? (in the end you decided to switch the lights on) (yes/no)")
+    if answer=="yes":
+        print("you decide to switch on the lights and the first thing you see is a door, it does appear to be locked though. do you care enough to find the key? (yes/no)")
+    elif answer== "no":
+        print("sorry " + player_name + ", you lost the game then, you should try again.")
+    else:
+        print("sorry that was not an option, you lost")
+else:
+    print("That was not an option, you lost")

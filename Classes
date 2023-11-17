@@ -1,0 +1,18 @@
+class Person:
+    def _init_ (self, age, weight, height, first_name, last_name, catch_phrase):
+        self.age = age
+        self.weight = weight
+        self.height = height
+        self.first_name = first_name
+        self.last_name = last_name
+        self.catch_phrase = catch_phrase
+    
+    def walk(self):
+        print("walking...")
+
+    def run(self):
+        print("Running...")
+
+user = Person(25, 80, "Jon", "Snow", "You know nothing, Jon Snow")
+
+user.walk()

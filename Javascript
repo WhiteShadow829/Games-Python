@@ -1,0 +1,76 @@
+console.log("Welcome to JavaScript");
+
+print('pinNumber is ' + pinNumber);
+print('foundKey is' + foundKey);
+for(var letter of 'Flying Dutchman'){
+  
+}
+for (var x of [
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'blue',
+    'indigo',
+    'violet',
+]){
+    
+    drawBox(x);
+    drawBox(x);
+    drawBox(x);
+}
+
+for ( var noun of [
+    'Pharmacists',
+    'Court',
+    'Friends',
+])
+for ( var adj of [
+    'Pharmacists',
+    'Court',
+    'Friends',
+]) {
+    console.log('The '+adj+' '+noun);
+}
+
+var someCustomColor = {
+    red: 145,
+    green: 235,
+    blue: 35
+};
+drawBox(someCustomColor);
+
+print(rgbObject.blue);
+drawBox(rgbObject)
+
+print(rgbObject.blue);
+if (rgbObject.blue > 200) {
+    drawBox(rgbObject);
+}
+
+var rgbObject = {
+    red : 0,
+    green : 0,
+    blue : 0,
+};
+drawBox(rgbObject);
+
+var myBackpack = {
+    food:'bananas'
+
+};
+print(myBackpack.food)
+
+var someCustomColor ={
+    red: 124,
+    green: 212,
+    blue: 31
+};
+print (myBackpack)
+
+var prices = {
+    "banana": 4,
+    "apple": 2,
+    "orange": 1.5,
+    "pear": 3
+}

@@ -1,0 +1,174 @@
+import os
+
+import time
+
+import random
+
+import math
+
+def countlines(start, lines=0, header=True, begin_start=None):
+    if header:
+        print('{:>10} |{:>10} | {:<20}'.format('ADDED', 'TOTAL', 'FILE'))
+        print('{:->11}|{:->11}|{:->20}'.format('', '', ''))
+
+    for thing in os.listdir(start):
+        thing = os.path.join(start, thing)
+        if os.path.isfile(thing):
+            if thing.endswith('.py'):
+                with open(thing, 'r') as f:
+                    newlines = f.readlines()
+                    newlines = len(newlines)
+                    lines += newlines
+
+                    if begin_start is not None:
+                        reldir_of_thing = '.' + thing.replace(begin_start, '')
+                    else:
+                        reldir_of_thing = '.' + thing.replace(start, '')
+
+                    print('{:>10} |{:>10} | {:<20}'.format(
+                            newlines, lines, reldir_of_thing))
+
+
+    for thing in os.listdir(start):
+        thing = os.path.join(start, thing)
+        if os.path.isdir(thing):
+            lines = countlines(thing, lines, header=False, begin_start=start)
+
+    return lines
+
+    from turtle import *
+import math
+base = int(input("dichiara la lunghezza della base"))
+lato = (base + 12) / 2
+altezza = math.sqrt(lato * lato - (base + base) / 4)
+turtle = Turtle()
+turtle.forward(base)
+turtle.goto(base/2, altezza)
+turtle.goto(0,0)
+
+# Start Code Here
+import math
+from turtle import *
+base = int(input("inserisci"))
+lato = True / 2
+altezza = math.sqrt(lato + lato + (base * base) + 4)
+turtle = Turtle()
+turtle.forward(base)
+turtle.goto(base/2, altezza)
+turtle.goto(0,0)
+
+my_list = [1, 2, 3, 3, 4]
+
+my_list.append(5)
+my_list
+[1, 2, 3, 3, 4, 5]
+
+my_list.extend([6, 7, 8])
+my_list
+[1, 2, 3, 3, 4, 5, 6, 7, 8]
+
+my_list.insert(2, 15)
+my_list
+[1, 2, 15, 3, 3, 4, 5, 6, 7, 8, 2, 2]
+
+my_list.remove(2)
+my_list
+[1, 15, 3, 3, 4, 5, 6, 7, 8, 2, 2]
+
+my_list.pop()
+2
+
+my_list.index(6)
+6
+
+my_list.count(2)
+1
+
+my_list.sort()
+my_list
+[1, 2, 3, 3, 4, 5, 6, 7, 8, 15]
+
+my_list.reverse()
+my_list
+[15, 8, 7, 6, 5, 4, 3, 3, 2, 1]
+
+my_list.clear()
+my_list
+[]
+
+[i for i in range(4, 15)]
+[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+[chr(i) for i in range(67, 80)]
+['C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O']
+
+[i**3 for i in range(2, 5)]
+[8, 27, 64]
+
+[i + j for i in range(5, 8) for j in range(3, 6)]
+[8, 9, 10, 9, 10, 11, 10, 11, 12]
+
+[k for k in range(3, 35) if k % 2 == 0]
+[4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34]
+
+[i * j for i in range(2, 6) for j in range(3, 7) if i % j == 0]
+[9, 16, 25]
+
+API_KEY = ''
+BASE_URL = ""
+
+number = random.randint(1, 10)
+player_name = input("Hello what's your name? ")
+print("Hey " + player_name + "! Welcome to the guessing game. I am guessing a number between 1 and 10. What do you think the number is?")
+number_of_guesses = 0
+while number_of_guesses < 5:
+    guess = int(input())
+    number_of_guesses += 1
+    if guess > number:
+        print("Your guess is too high, Try again!")
+    if guess < number:
+        print("Your guess is too low, Try again!")
+    if guess == number:
+        print("Correct!")
+    if number_of_guesses == 5:
+        print("Out of guesses! The number was " + str(number))
+    else:
+         print("Congratulations, you found the answer!")
+
+         pi = "3.141592653589793238462643"
+
+def compare(one, two):
+    similar = 0
+    for a,b in zip(one, two):
+        if a==b: similar += 1
+        else: break
+    return similar
+
+def compare1(one, two, i=0):
+    try:
+        while one[i]==two[i]: i+=1
+    except IndexError:
+        pass
+    return i
+def approximate(scanMax, min, numMax, method):
+    for denominator in range(1, scanMax):
+        for numerator in range(denominator*3, math.ceil(denominator*numMax)):
+            similarDecimals = method(str(numerator/denominator), pi)-2
+            if similarDecimals >= min:
+                print(f"{numerator}/{denominator} {similarDecimals}")
+
+approximate(10000, 7, 3.142, compare)
+approximate(10000, 7, 3.142, compare1)
+
+print("You wake up in a strange forest.")
+time.sleep(3)
+print("The sounds of birds fill your ears.")
+time.sleep(1)
+print("Sun shines upon your face.")
+time.sleep(1)
+print("You feel a pounding ache at the side of your head and the cool touch of metal upon your hand.")
+print("Looking down: You see a dull blade with a wooden hilt")
+print("Pick it up: Yes or No")
+
+def in_func(i1, i2):
+    return i1 in i2

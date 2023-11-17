@@ -1,0 +1,26 @@
+from ast import Continue
+import random
+
+from collections import  Counter
+someWords = "apple, banana, mango, kiwi, carrot, lettuce, lemon, strawberry"
+Playing = True
+letterGuessed = ''
+chances = len("word") + 2
+correct = 0
+guess = str(input('enter a letter to guess:'))
+print = ('only enter a letter, numbers are not avaiable, yet...')
+if guess in "word":
+    letterGuessed += guess
+    for char in "word":
+        if char in letterGuessed:
+            print(char,end='')
+            correct += 1
+        else:
+            print('_', end = '')
+if (Counter(letterGuessed)==Counter("word")):
+    print()
+    print('congrats, you found the right word')
+if chances == 0:
+    print()
+    print('You lost, try again if you want to')
+    print('The word was {}'.format("word"))

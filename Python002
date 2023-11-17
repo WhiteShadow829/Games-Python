@@ -1,0 +1,9 @@
+import random
+index = random.randint(1,26)
+alfabeto = ['CIAO', 'ALLORA', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+print(alfabeto[index])
+parola = input("Inserisci la parola: ")
+if parola == alfabeto[index]:
+    print("ok!")
+else:
+    print ("sei un asino!")

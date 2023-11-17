@@ -1,0 +1,91 @@
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+
+public class Match2 : MonoBehaviour
+{
+//Arrays
+	public GameObject[] red = new GameObject[4];
+	public GameObject[] green = new GameObject[4];
+	public GameObject[] blue = new GameObject[4];
+//Indexing	
+	public int indexRed = 0;
+	public int indexGreen = 0;
+	public int indexBlue = 0;
+//Effects
+	public GameObject effect;
+//Sounds
+	public AudioClip clickSound;
+	public AudioClip destroySound;
+//Limit
+	public int capCount; 
+//Score 
+	public GameObject scoreTag;
+	public TextMesh guiScore;
+	public TextMesh guiMatched;
+	public float score = 0f;
+	public float Matched = 0f;
+	public GameObject winText;	
+	public Transform gameOverSpawn;
+	public bool win = false;
+	public float finishTime = 90f;
+	//Shake
+	public float duration = 1f;
+	public AnimationCurve curve;
+	
+	
+	void Update ()
+	{
+		finishTime -= 1 * Time.deltaTime;
+
+		if (Input.GetMouseButton(0))
+		{
+			Ray ClickRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit ClickRayHit;
+			
+			if (Physics.Raycast(ClickRay, out ClickRayHit))
+			{
+				if (ClickRayHit.collider.tag == "special" && ClickRayHit.collider.gameObject.GetComponent<Rigidbody>().isKinematic == false)
+				{
+					ClickRayHit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+					
+					red[indexRed] = ClickRayHit.collider.gameObject;
+					indexRed++;
+					indexGreen++;
+					indexBlue++;
+					GetComponent<AudioSource>().PlayOneShot(clickSound, 1);
+				}
+
+				////RED////
+				///////////
+
+				  
+				if (ClickRayHit.collider.tag == "red" && ClickRayHit.collider.gameObject.GetComponent<Rigidbody>().isKinematic == false)
+				{
+					ClickRayHit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+					
+					red[indexRed] = ClickRayHit.collider.gameObject;
+					GetComponent<AudioSource>().PlayOneShot(clickSound, 1);
+					StartCoroutine(Shaking());
+					indexRed++;
+				}
+
+
+				if(indexRed == 4)
+				{
+					indexRed = 0;
+					
+					foreach(GameObject obj in red)
+					{
+						score += 100;
+						guiScore.text = "Score" + score;
+						GetComponent<AudioSource>().PlayOneShot(destroySound, 0.7F);
+						Instantiate(effect, obj.transform.position, obj.transform.rotation);
+						Instantiate(scoreTag, obj.transform.position, obj.transform.rotation);
+						Matched += 1;
+						guiMatched.text = "Matched" + Matched;
+						Destroy(obj);
+						capCount -= 1;
+					}
+				}

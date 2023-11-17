@@ -1,0 +1,25 @@
+from cmath import pi
+import math
+
+def compare(one, two):
+    similar = 0
+    for a,b in zip(one, two):
+        if a==b: similar += 1
+        else: break
+    return similar
+
+def compare1(one, two, i=0):
+    try:
+        while one[i]==two[i]: i+=1
+    except IndexError:
+        pass
+    return i
+def approximate(scanMax, min, numMax, method):
+    for denominator in range(1, scanMax):
+        for numerator in range(denominator*3, math.ceil(denominator*numMax)):
+            similarDecimals = method(str(numerator/denominator), pi)-2
+            if similarDecimals >= min:
+                print(f"{numerator}/{denominator} {similarDecimals}")
+
+approximate(10000, 7, 3.142, compare)
+approximate(10000, 7, 3.142, compare1)

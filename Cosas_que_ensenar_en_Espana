@@ -1,0 +1,9 @@
+from multiprocessing.connection import answer_challenge
+
+
+Paso1=print("hello world")
+
+print("say hello to jorge!")
+asnwer=input("0")
+if answer_challenge=="Hello Jorge":
+    answer=input(Paso1)

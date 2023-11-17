@@ -1,0 +1,19 @@
+print("FACTORIZATION MACHINE")
+exit =""
+while exit != "no":
+	print()
+	sum=int(input("the numbers have to sum to....>"))
+	mul=int(input("the numbers have to multiply to....>"))
+	def factorize(sum, mul):
+		for f in range(-100, 101):
+			for n in range(-100, 101):
+				if n+f==sum and n*f==mul:
+					print()
+					print(f)
+					print(n)		
+				else:
+					continue
+	
+	factorize(sum, mul)
+	print()
+	exit =input("Do you want to factorize again? >")
